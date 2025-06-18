@@ -98,38 +98,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.quickcamera@1.0-impl",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/vendor.xiaomi.hardware.quickcamera@1.0-impl.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libbase",
-                "libutils",
-                "libcutils",
-                "libhidlbase",
-                "libhardware",
-                "vendor.xiaomi.hardware.quickcamera@1.0",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libPlatformValidatorShared",
     owner: "xiaomi",
     strip: {
@@ -733,31 +701,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhta_hexagon_runtime_snpe",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libhta_hexagon_runtime_snpe.so",
-            ],
-            shared_libs: [
-                "libm",
-                "liblog",
-                "libcdsprpc",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libmicuttlefish_fs",
     owner: "xiaomi",
     strip: {
@@ -824,36 +767,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libquickcamera",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libquickcamera.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libhidlbase",
-                "libcutils",
-                "vendor.xiaomi.hardware.quickcamera@1.0",
-                "vendor.xiaomi.hardware.quickcamera@1.0-impl",
                 "libc++",
                 "libc",
                 "libm",
@@ -1189,63 +1102,6 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/vendor.xiaomi.hardware.bgservice@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.campostproc@1.0",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0.so",
-            ],
-            shared_libs: [
-                "android.hardware.camera.common@1.0",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.quickcamera@1.0",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.xiaomi.hardware.quickcamera@1.0.so",
             ],
             shared_libs: [
                 "libhidlbase",
@@ -1746,15 +1602,6 @@ prebuilt_rfsa {
     filename: "chre_qsh_shim.so",
     owner: "xiaomi",
     src: "proprietary/vendor/lib/rfsa/adsp/chre_qsh_shim.so",
-    relative_install_path: "adsp",
-    soc_specific: true,
-}
-
-prebuilt_rfsa {
-    name: "hrtf5c",
-    filename: "hrtf5c.bin",
-    owner: "xiaomi",
-    src: "proprietary/vendor/lib/rfsa/adsp/hrtf5c.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -3696,7 +3543,7 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcom.xiaomi.mawutilsold",
                 "libui",
-                "libvideofilter_only",
+                "libMiVideoFilter",
                 "libc++",
                 "libc",
                 "libm",
@@ -9494,6 +9341,34 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libMiVideoFilter",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/odm/lib64/libMiVideoFilter.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libGLESv3",
+                "libEGL",
+                "libnativewindow",
+                "libz",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    device_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libTrueSight",
     owner: "xiaomi",
     strip: {
@@ -13712,33 +13587,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libvideofilter_only",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libvideofilter_only.so",
-            ],
-            shared_libs: [
-                "libGLESv3",
-                "libEGL",
-                "liblog",
-                "libc++_shared",
-                "libm",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libvideoml",
     owner: "xiaomi",
     strip: {
@@ -14297,22 +14145,17 @@ prebuilt_rfsa {
     device_specific: true,
 }
 
-prebuilt_etc_xml {
-    name: "vendor.xiaomi.hardware.quickcamera@1.0-service.xml",
+android_app_import {
+    name: "EuiccGoogle",
     owner: "xiaomi",
-    src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.quickcamera@1.0-service.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "vendor.xiaomi.hardware.vcamera.provider.xml",
-    owner: "xiaomi",
-    src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.vcamera.provider.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
+    apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
 }
 
 cc_prebuilt_binary {
@@ -14329,41 +14172,6 @@ cc_prebuilt_binary {
                 "libhidlbase",
                 "liblog",
                 "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "vendor.xiaomi.hardware.quickcamera@1.0-service",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service",
-            ],
-            shared_libs: [
-                "liblog",
-                "libbase",
-                "libbinder",
-                "libutils",
-                "libcutils",
-                "libhidlbase",
-                "libhardware",
-                "libquickcamera",
-                "vendor.xiaomi.hardware.quickcamera@1.0",
-                "vendor.xiaomi.hardware.quickcamera@1.0-impl",
                 "libc++",
                 "libc",
                 "libm",
